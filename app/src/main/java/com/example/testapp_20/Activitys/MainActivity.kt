@@ -2,6 +2,7 @@ package com.example.testapp_20.Activitys
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Telephony
 import android.view.View
@@ -42,7 +43,6 @@ class MainActivity : AppCompatActivity() {
 
         id.btnHistory.setOnClickListener {
 
-
             if (historyArray.size>=1)
             {
                 val intent = Intent(this@MainActivity, HistoryActivity::class.java)
@@ -55,6 +55,10 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        id.llLocate.setOnClickListener {
+
+           openMapWithCoordinates(historyArray[historyArray.size-1].country?.latitude.toString() + "," +historyArray[historyArray.size-1].country?.longitude.toString())
+        }
 
         id.btnMetaData.setOnClickListener {
             val inputBin = id.editText.text.toString()
@@ -65,7 +69,36 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    private fun openMapWithCoordinates(coordinates: String) {
+        // Проверяем, что строка содержит запятую
+        if (!coordinates.contains(",")) {
+            // Обработка ошибки неверного формата
+            return
+        }
 
+        try {
+
+            val parts = coordinates.split(",").map { it.trim() }
+            val latitude = parts[0]
+            val longitude = parts[1]
+
+            // Создаем URI для карт
+            val uri = Uri.parse("geo:$latitude,$longitude?q=$latitude,$longitude")
+            val mapIntent = Intent(Intent.ACTION_VIEW, uri)
+
+            // Проверяем, есть ли приложение для обработки этого Intent
+            mapIntent.resolveActivity(packageManager)?.let {
+                startActivity(mapIntent)
+            } ?: run {
+                //Открыть в браузере
+                val webUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=$latitude,$longitude")
+                val webIntent = Intent(Intent.ACTION_VIEW, webUri)
+                startActivity(webIntent)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
     private fun saveHistoryToPrefs(history: ArrayList<DataClass.Bin>) {
         val prefs = getSharedPreferences("BIN_HISTORY_PREFS", MODE_PRIVATE)
         val json = Json {

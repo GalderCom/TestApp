@@ -45,19 +45,6 @@ class CustomAdapterHistory (private var data: ArrayList<DataClass.Bin>): Recycle
 
         holder.itemView.setOnClickListener(){
 
-            val layout = LayoutInflater.from(holder.itemView.context);
-
-            val bottomSheetDialog = BottomSheetDialog(holder.itemView.context)
-
-
-
-        /*    val view = layout.inflate(R.layout.bottom_sheet_fragment, null)
-            bottomSheetDialog.setContentView(view)*/
-
-
-
-            bottomSheetDialog.show()
-
         }
     }
 

@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/alegreya_bold"
-            android:text="Card:"
+            android:text="Card: "
             android:textColor="@color/dark_green"
             android:textSize="20dp" />
 
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/alegreya_bold"
-            android:text=""
+            android:text="22222"
             android:textColor="#34484B"
             android:textSize="20dp" />
         </LinearLayout>
