@@ -1,21 +1,25 @@
 package com.example.testapp_20
 
-class DataClass {
+import kotlinx.serialization.Serializable
 
-     class Bin(
-        val number: NumberInfo?,
-        val scheme: String?,
-        val type: String?,
-        val brand: String?,
-        val prepaid: Boolean?,
-        val country: Country?,
-        val bank: Bank?
-    ) {
+class DataClass {
+    @Serializable
+     data class Bin(
+         var bin: String?,
+         val number: NumberInfo?,
+         val scheme: String?,
+         val type: String?,
+         val brand: String?,
+         val prepaid: Boolean?,
+         val country: Country?,
+         val bank: Bank?
+    ){
+        @Serializable
         data class NumberInfo(
             val length: Int?,
             val luhn: Boolean?
         )
-
+        @Serializable
         data class Country(
             val numeric: String?,
             val alpha2: String?,
@@ -25,7 +29,7 @@ class DataClass {
             val latitude: Int?,
             val longitude: Int?
         )
-
+        @Serializable
         data class Bank(
             val name: String?,
             val url: String?,

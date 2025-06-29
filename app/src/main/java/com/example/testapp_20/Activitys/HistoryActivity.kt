@@ -3,19 +3,53 @@ package com.example.testapp_20.Activitys
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.testapp_20.R
+import androidx.recyclerview.widget.RecyclerView
+import com.example.testapp_20.CustomAdapterHistory
+import com.example.testapp_20.DataClass
+import com.example.testapp_20.databinding.ActivityHistoryBinding
+import kotlinx.serialization.json.Json
 
+private lateinit var id: ActivityHistoryBinding
 class HistoryActivity : AppCompatActivity() {
+
+
+    lateinit var mRecyclerHistory: RecyclerView;
+
+    lateinit var customAdapterHistory: CustomAdapterHistory;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_history)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        id = ActivityHistoryBinding.inflate(layoutInflater)
+        setContentView(id.root)
+
+        mRecyclerHistory = id.historyList
+
+        customAdapterHistory = CustomAdapterHistory(loadHistoryFromPrefs())
+        mRecyclerHistory.adapter = customAdapterHistory;
+
+
+
+        mRecyclerHistory.adapter = customAdapterHistory
+
+        id.btnBack.setOnClickListener {
+            finish()
+        }
+
+    }
+
+    private fun loadHistoryFromPrefs(): ArrayList<DataClass.Bin> {
+        val prefs = getSharedPreferences("BIN_HISTORY_PREFS", MODE_PRIVATE)
+        val jsonString = prefs.getString("history_list", null)
+        return if (jsonString != null) {
+
+                ArrayList(Json.decodeFromString<List<DataClass.Bin>>(jsonString))
+
+        } else {
+            ArrayList()
         }
     }
+
+
 }

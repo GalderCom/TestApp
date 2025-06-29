@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,261 +8,289 @@
     tools:context=".Activitys.MainActivity"
     android:background="@drawable/bcg">
 
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
-
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="27dp">
+            android:layout_height="match_parent">
 
-            <!-- Заголовок -->
+            <ImageButton
+                android:id="@+id/btn_history"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="20dp"
+                android:layout_gravity="end"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/menu"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                android:background="@android:color/transparent"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="80dp"
-                android:gravity="center_horizontal">
+                android:padding="27dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="WELCOME"
-                    android:textSize="32sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/alegreya_bold"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Analis your card"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/alegreya_sans_medium"/>
-            </LinearLayout>
-
-            <!-- Поле ввода -->
-            <EditText
-                android:maxLength="10"
-                android:id="@+id/editText"
-                android:layout_marginTop="45dp"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/edit_text_bcg"
-                android:textColor="@color/dark_green"
-                android:textColorHint="@color/dark_green"
-                android:textSize="22sp"
-                android:fontFamily="@font/alegreya_sans_regular"
-                android:inputType="number"
-                android:textCursorDrawable="@drawable/cursor_style"
-                android:textAllCaps="true"/>
-
-
-            <LinearLayout
-                android:id="@+id/layoutCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/card_bcg"
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                tools:ignore="RtlSymmetry"
-                android:columnCount="2"
-                android:visibility="visible">
-
-
+                <!-- Заголовок -->
                 <LinearLayout
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content">
+                    android:orientation="vertical"
+                    android:layout_marginTop="80dp"
+                    android:gravity="center_horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/alegreya_bold"
-                        android:text="Card:"
-                        android:textColor="@color/dark_green"
-                        android:textSize="20dp" />
+                        android:text="WELCOME"
+                        android:textSize="32sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/alegreya_bold"/>
 
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text="Country: "
-                            android:textColor="@color/dark_green"
-                            android:textSize="18sp" />
-                        <TextView
-                            android:id="@+id/tv_country"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text=""
-                            android:textColor="#34484B"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text="Locate: "
-                            android:textColor="@color/dark_green"
-                            android:textSize="18sp" />
-                        <TextView
-                            android:id="@+id/tv_locate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text=""
-                            android:textColor="#34484B"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text="Type: "
-                            android:textColor="@color/dark_green"
-                            android:textSize="18sp" />
-                        <TextView
-                            android:id="@+id/tv_type"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text=""
-                            android:textColor="#34484B"
-                            android:textSize="18sp" />
-                    </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:text="Analis your card"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/alegreya_sans_medium"/>
                 </LinearLayout>
+
+                <!-- Поле ввода -->
+                <EditText
+                    android:layout_marginBottom="15dp"
+                    android:maxLength="10"
+                    android:id="@+id/editText"
+                    android:layout_marginTop="45dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_bcg"
+                    android:textColor="@color/dark_green"
+                    android:textColorHint="@color/dark_green"
+                    android:textSize="22sp"
+                    android:fontFamily="@font/alegreya_sans_regular"
+                    android:inputType="number"
+                    android:textCursorDrawable="@drawable/cursor_style"
+                    android:textAllCaps="true"/>
+
+                <ProgressBar
+                    android:id="@+id/pb_loading"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    style="@style/CircularProgress"
+                    android:visibility="invisible"/>
+
 
                 <LinearLayout
-                    android:layout_columnWeight="1"
-                    android:orientation="vertical"
-                    android:layout_column="1"
-                    android:layout_marginBottom="5dp"
+                    android:id="@+id/layoutCard"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content">
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/card_bcg"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    tools:ignore="RtlSymmetry"
+                    android:columnCount="2"
+                    android:visibility="gone">
+
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:fontFamily="@font/alegreya_bold"
-                            android:text="Bank: "
+                            android:text="Card:"
                             android:textColor="@color/dark_green"
                             android:textSize="20dp" />
-                        <TextView
-                            android:id="@+id/tv_bank"
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/alegreya_bold"
-                            android:text=""
-                            android:textColor="#34484B"
-                            android:textSize="20dp" />
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text="Country: "
+                                android:textColor="@color/dark_green"
+                                android:textSize="18sp" />
+                            <TextView
+                                android:id="@+id/tv_country"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text=""
+                                android:textColor="#34484B"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text="Locate: "
+                                android:textColor="@color/dark_green"
+                                android:textSize="18sp" />
+                            <TextView
+                                android:id="@+id/tv_locate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text=""
+                                android:textColor="#34484B"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text="Type: "
+                                android:textColor="@color/dark_green"
+                                android:textSize="18sp" />
+                            <TextView
+                                android:id="@+id/tv_type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text=""
+                                android:textColor="#34484B"
+                                android:textSize="18sp" />
+                        </LinearLayout>
                     </LinearLayout>
 
-
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text="Url: "
-                            android:textColor="@color/dark_green"
-                            android:textSize="18sp" />
-                        <TextView
-                            android:id="@+id/tv_url"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text=""
-                            android:textColor="#34484B"
-                            android:textSize="18sp" />
-                    </LinearLayout>
+                        android:layout_columnWeight="1"
+                        android:orientation="vertical"
+                        android:layout_column="1"
+                        android:layout_marginBottom="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content">
 
-                    <LinearLayout
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text="Phone: "
-                            android:textColor="@color/dark_green"
-                            android:textSize="18sp" />
-                        <TextView
-                            android:id="@+id/tv_phone"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text=""
-                            android:textColor="#34484B"
-                            android:textSize="18sp" />
-                    </LinearLayout>
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/alegreya_bold"
+                                android:text="Bank: "
+                                android:textColor="@color/dark_green"
+                                android:textSize="20dp" />
+                            <TextView
+                                android:id="@+id/tv_bank"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/alegreya_bold"
+                                android:text=""
+                                android:textColor="#34484B"
+                                android:textSize="20dp" />
+                        </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_marginTop="10dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text="Ciy: "
-                            android:textColor="@color/dark_green"
-                            android:textSize="18sp" />
-                        <TextView
-                            android:id="@+id/tv_city"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text="Url: "
+                                android:textColor="@color/dark_green"
+                                android:textSize="18sp" />
+                            <TextView
+                                android:id="@+id/tv_url"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text=""
+                                android:textColor="#34484B"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/alegreya_sans_medium"
-                            android:text=""
-                            android:textColor="#34484B"
-                            android:textSize="18sp" />
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text="Phone: "
+                                android:textColor="@color/dark_green"
+                                android:textSize="18sp" />
+                            <TextView
+                                android:id="@+id/tv_phone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text=""
+                                android:textColor="#34484B"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text="Ciy: "
+                                android:textColor="@color/dark_green"
+                                android:textSize="18sp" />
+                            <TextView
+                                android:id="@+id/tv_city"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/alegreya_sans_medium"
+                                android:text=""
+                                android:textColor="#34484B"
+                                android:textSize="18sp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/btnMetaData"
+                    android:layout_width="match_parent"
+                    android:layout_height="61dp"
+                    android:text="Get metadata"
+                    android:gravity="center"
+                    android:background="@drawable/btn_bcg"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/alegreya_sans_medium"
+                    android:textSize="25sp"
+                    android:textAllCaps="false"/>
+
             </LinearLayout>
+        </FrameLayout>
 
-
-            <Button
-                android:id="@+id/btnMetaData"
-                android:layout_marginTop="80dp"
-                android:layout_width="match_parent"
-                android:layout_height="61dp"
-                android:text="Get metadata"
-                android:gravity="center"
-                android:background="@drawable/btn_bcg"
-                android:textColor="@color/white"
-                android:fontFamily="@font/alegreya_sans_medium"
-                android:textSize="25sp"
-                android:textAllCaps="false"/>
-
-        </LinearLayout>
     </ScrollView>
-</RelativeLayout>
+</FrameLayout>

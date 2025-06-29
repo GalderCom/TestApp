@@ -5,4 +5,5 @@
     <color name="dark_green">#253334</color>
     <color name="yellow">#BFC8B2</color>
     <color name="light_green">#7C9A92</color>
+    <color name="transp">#00FFFFFF</color>
 </resources>
