@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TestApp_20" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.TestApp_20" parent="Base.Theme.TestApp_20" />
+
+    <style name="splash" parent="Theme.AppCompat.Light.NoActionBar">
+
+
+        <!-- Уберите системный фон -->
+        <!--        <item name="android:windowBackground">@drawable/bcg</item>
+
+
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="android:background">@drawable/bcg</item>
+        <item name="windowSplashScreenBackground">@drawable/bcg</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>-->
+
+
+        <item name="windowSplashScreenBackground">@android:color/transparent</item>
+        <item name="windowSplashScreenAnimatedIcon">@null</item>
+        <item name="windowSplashScreenAnimationDuration">0</item>
+
+        <!-- Для старых версий Android -->
+        <item name="android:windowDisablePreview">true</item>
+
+    </style>
+    <!-- Base application theme. -->
+    <style name="Base.splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+</resources>
